@@ -2,20 +2,20 @@
 import UIKit
 import QuartzCore
 
-enum M13BadgeViewHorizontalAlignment {
+public enum M13BadgeViewHorizontalAlignment {
     case M13BadgeViewHorizontalAlignmentNone
     case M13BadgeViewHorizontalAlignmentLeft
     case M13BadgeViewHorizontalAlignmentCenter
     case M13BadgeViewHorizontalAlignmentRight
 }
-enum M13BadgeViewVerticalAlignment {
+public enum M13BadgeViewVerticalAlignment {
     case M13BadgeViewVerticalAlignmentNone
     case M13BadgeViewVerticalAlignmentTop
     case M13BadgeViewVerticalAlignmentMiddle
     case M13BadgeViewVerticalAlignmentBottom
 }
 
-class TKBadgeView:UIView {
+public class TKBadgeView:UIView {
     
     var autoSetCornerRadius = false
     var textLayer: CATextLayer!
@@ -28,25 +28,25 @@ class TKBadgeView:UIView {
     //
     
     //Set the defaults
-    var textColor:UIColor = .white {
+    public var textColor:UIColor = .white {
         didSet {
             textLayer.foregroundColor = textColor.cgColor
         }
     }
-    var textAlignmentShift:CGSize = .zero
-    var font:UIFont = UIFont.systemFont(ofSize: 16.0){
+    public var textAlignmentShift:CGSize = .zero
+    public var font:UIFont = UIFont.systemFont(ofSize: 16.0){
         didSet {
             textLayer.fontSize = font.pointSize
             textLayer.font = "SF-UI-Text-Medium" as CFTypeRef
             self.autoSetBadgeFrame()
         }
     }
-    var badgeBackgroundColor:UIColor = .red{
+    public var badgeBackgroundColor:UIColor = .red{
         didSet {
             backgroundLayer.fillColor = self.badgeBackgroundColor.cgColor
         }
     }
-    var showGloss = false{
+    public var showGloss = false{
         didSet {
             if (showGloss) {
                 self.layer.addSublayer(glossLayer)
@@ -55,7 +55,7 @@ class TKBadgeView:UIView {
             }
         }
     }
-    var cornerRadius:CGFloat = 0 {
+    public var cornerRadius:CGFloat = 0 {
         didSet {
             autoSetCornerRadius = false
              //Update boackground
@@ -66,22 +66,22 @@ class TKBadgeView:UIView {
         }
     }
     
-    var horizontalAlignment = M13BadgeViewHorizontalAlignment.M13BadgeViewHorizontalAlignmentRight {
+    public var horizontalAlignment = M13BadgeViewHorizontalAlignment.M13BadgeViewHorizontalAlignmentRight {
         didSet {
             self.autoSetBadgeFrame()
         }
     }
-    var verticalAlignment = M13BadgeViewVerticalAlignment.M13BadgeViewVerticalAlignmentTop {
+    public var verticalAlignment = M13BadgeViewVerticalAlignment.M13BadgeViewVerticalAlignmentTop {
         didSet {
             self.autoSetBadgeFrame()
         }
     }
-    var alignmentShift = CGSize(width: 0, height: 0) {
+    public var alignmentShift = CGSize(width: 0, height: 0) {
         didSet {
             self.autoSetBadgeFrame()
         }
     }
-    var animateChanges = true {
+    public var animateChanges = true {
         didSet {
             if (animateChanges) {
                 //Setup animations
@@ -102,30 +102,30 @@ class TKBadgeView:UIView {
             }
         }
     }
-    var animationDuration = 0.2
-    var borderWidth:CGFloat = 0.0 {
+    public var animationDuration = 0.2
+    public var borderWidth:CGFloat = 0.0 {
         didSet {
             borderLayer.lineWidth = borderWidth;
             self.setNeedsLayout()
         }
     }
-    var borderColor:UIColor = .white {
+    public var borderColor:UIColor = .white {
         didSet {
             borderLayer.strokeColor = borderColor.cgColor
         }
     }
-    var shadowColor:UIColor =  UIColor.init(white: 0.0, alpha: 0.5)
-    var shadowOffset = CGSize(width: 1, height: 1) {
+    public var shadowColor:UIColor =  UIColor.init(white: 0.0, alpha: 0.5)
+    public var shadowOffset = CGSize(width: 1, height: 1) {
         didSet {
             
         }
     }
-    var shadowRadius:CGFloat = 1.0{
+    public var shadowRadius:CGFloat = 1.0{
         didSet {
             
         }
     }
-    var shadowText = false{
+    public var shadowText = false{
         didSet {
             if (self.shadowText) {
                 textLayer.shadowColor = self.shadowColor.cgColor
@@ -138,7 +138,7 @@ class TKBadgeView:UIView {
             }
         }
     }
-    var shadowBorder = false {
+    public var shadowBorder = false {
         didSet {
             if (self.shadowBorder) {
                 borderLayer.shadowColor = self.shadowColor.cgColor
@@ -151,7 +151,7 @@ class TKBadgeView:UIView {
             }
         }
     }
-    var shadowBadge = false {
+    public var shadowBadge = false {
         didSet {
             if (self.shadowBadge) {
                 backgroundLayer.shadowColor = self.shadowColor.cgColor
@@ -164,18 +164,18 @@ class TKBadgeView:UIView {
             }
         }
     }
-    var hidesWhenZero = true {
+    public var hidesWhenZero = true {
         didSet {
             self.hideForZeroIfNeeded()
         }
     }
-    var pixelPerfectText = true
-    var minimumWidth:CGFloat = 0.0 {
+    public var pixelPerfectText = true
+    public var minimumWidth:CGFloat = 0.0 {
         didSet {
             self.autoSetBadgeFrame()
         }
     }
-    var maximumWidth = CGFloat.greatestFiniteMagnitude {
+    public var maximumWidth = CGFloat.greatestFiniteMagnitude {
         didSet {
             if (maximumWidth < self.frame.size.height) {
                 maximumWidth = self.frame.size.height;
@@ -188,12 +188,12 @@ class TKBadgeView:UIView {
     
 
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.setup()
     }
@@ -390,7 +390,7 @@ class TKBadgeView:UIView {
         return textSize
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         //Update the frames of the layers
         var textFrame = CGRect.zero

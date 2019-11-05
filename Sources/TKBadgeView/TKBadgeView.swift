@@ -417,7 +417,7 @@ public class TKBadgeView:UIView {
         glossMaskLayer.path = UIBezierPath(roundedRect: rectInset, cornerRadius:cornerRadius).cgPath;
     }
     
-    var text: String = "" {
+    public var text: String = "" {
         didSet {
 
             //If the new text is shorter, display the new text before shrinking

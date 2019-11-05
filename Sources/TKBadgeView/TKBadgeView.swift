@@ -15,7 +15,7 @@ enum M13BadgeViewVerticalAlignment {
     case M13BadgeViewVerticalAlignmentBottom
 }
 
-public class TKBadgeView:UIView {
+class TKBadgeView:UIView {
     
     var autoSetCornerRadius = false
     var textLayer: CATextLayer!
@@ -390,7 +390,7 @@ public class TKBadgeView:UIView {
         return textSize
     }
     
-    public override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         //Update the frames of the layers
         var textFrame = CGRect.zero

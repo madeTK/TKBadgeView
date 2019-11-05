@@ -390,7 +390,7 @@ public class TKBadgeView:UIView {
         return textSize
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         //Update the frames of the layers
         var textFrame = CGRect.zero
